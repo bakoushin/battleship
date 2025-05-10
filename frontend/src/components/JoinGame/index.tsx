@@ -1,0 +1,60 @@
+import { useWaitForTransactionReceipt, useWriteContract } from 'wagmi'
+import { Button } from '../Button'
+import { WAGMI_CONTRACT_CONFIG } from '../../constants/config'
+import { parseEther } from 'viem'
+import { boardToBinaryNumber, generateBoard } from '../../utils/game'
+import { SHIP } from '../../constants/game'
+import { useState } from 'react'
+import Board from '../Board/Board'
+import classes from './index.module.css'
+
+export function JoinGame({ gameId }: { gameId: bigint }) {
+  const [board, setBoard] = useState<string[]>(generateBoard())
+
+  function randomizeBoard() {
+    setBoard(generateBoard())
+  }
+
+  const {
+    data: setMessageTxHash,
+    writeContract,
+    isPending: isWriteContractPending,
+    isError: isWriteContractError,
+    error: writeContractError,
+  } = useWriteContract()
+  const {
+    isPending: isTransactionReceiptPending,
+    isSuccess: isTransactionReceiptSuccess,
+    isError: isTransactionReceiptError,
+    error: transactionReceiptError,
+  } = useWaitForTransactionReceipt({
+    hash: setMessageTxHash,
+  })
+
+  const isInteractingWithChain = isWriteContractPending || (setMessageTxHash && isTransactionReceiptPending)
+
+  async function createGame() {
+    writeContract({
+      ...WAGMI_CONTRACT_CONFIG,
+      functionName: 'joinGame',
+      args: [gameId, boardToBinaryNumber(board, SHIP)],
+      value: parseEther('5'),
+    })
+  }
+
+  return (
+    <div>
+      <Board board={board} />
+      <div className={classes.actions}>
+        <Button variant="text" onClick={randomizeBoard}>
+          Randomize
+        </Button>
+
+        <Button onClick={createGame} disabled={isInteractingWithChain}>
+          {isInteractingWithChain ? 'Joining game...' : 'Join Game'}
+        </Button>
+        <p className={classes.secondaryText}>And bet 5 to win 10</p>
+      </div>
+    </div>
+  )
+}

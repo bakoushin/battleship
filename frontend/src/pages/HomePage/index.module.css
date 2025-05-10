@@ -1,0 +1,13 @@
+.label {
+  text-align: center;
+  margin: 16px
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  gap: 12px
+}

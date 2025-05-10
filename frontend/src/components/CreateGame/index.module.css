@@ -1,0 +1,14 @@
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  gap: 12px
+}
+
+.secondaryText {
+  color: #333;
+  font-size: 0.875rem;
+  text-align: center;
+}
