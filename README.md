@@ -1,5 +1,7 @@
 # 🛡️ Battleship on Oasis Sapphire: Private On-Chain Gameplay
 
+#### Testnet deployment: https://battleship-d0q.pages.dev/
+
 This is a fully on-chain implementation of the classic Battleship game, built to demonstrate the power of **[Oasis Sapphire](https://oasisprotocol.org/sapphire)**—the first confidential EVM-compatible blockchain with support for **private smart contract state** and **encrypted transactions**.
 
 Unlike traditional EVM networks, where all on-chain data is publicly visible, this project leverages Sapphire’s confidential compute features to enforce **cheat-proof gameplay** by ensuring that:
