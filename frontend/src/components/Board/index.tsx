@@ -1,5 +1,5 @@
 import React from 'react'
-import './Board.css'
+import classes from './index.module.css'
 import { SHIP, HIT, MISS, EMPTY } from '../../constants/game'
 
 type BoardProps = {
@@ -11,21 +11,26 @@ type BoardProps = {
 
 const Board: React.FC<BoardProps> = ({ board, onClick, pendingCellIndex, disabled }) => {
   return (
-    <div className="board">
+    <div className={classes.board}>
       {board.map((cell, index) => (
         <div
           key={index}
-          className={`cell wall ${
+          className={[
+            classes.cell,
+            classes.wall,
             index === pendingCellIndex
-              ? 'pending'
+              ? classes.pending
               : cell === SHIP
-              ? 'ship'
+              ? classes.ship
               : cell === HIT
-              ? 'hit'
+              ? classes.hit
               : cell === MISS
-              ? 'miss'
-              : 'empty'
-          } ${cell === EMPTY && onClick && !pendingCellIndex && !disabled ? 'clickable' : ''}`}
+              ? classes.miss
+              : classes.empty,
+            cell === EMPTY && onClick && !pendingCellIndex && !disabled ? classes.clickable : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
           onClick={() => cell === EMPTY && !pendingCellIndex && !disabled && onClick && onClick(index)}
         ></div>
       ))}

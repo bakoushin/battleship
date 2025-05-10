@@ -228,11 +228,11 @@ const Game: FC = () => {
 
   return (
     <>
-      {gameReady && !playerBoard && <BoardSkeleton />}
-      {gameReady && playerBoard && (
+      {gameReady && (
         <>
           <h1 className={classes.header}>You</h1>
-          <Board board={playerBoard} />
+          {!playerBoard && <BoardSkeleton />}
+          {playerBoard && <Board board={playerBoard} />}
         </>
       )}
       {canJoin && <JoinGame gameId={gameId} />}

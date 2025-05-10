@@ -30,6 +30,7 @@
 }
 
 .pulsate {
+  margin-top: 16px;
   animation: pulsate 1s infinite;
   display: inline-block;
   /* Optional: make it smoother */

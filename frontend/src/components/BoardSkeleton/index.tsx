@@ -4,9 +4,9 @@ const BOARD_SIZE = 6
 
 export default function BoardSkeleton() {
   return (
-    <div className="board board-skeleton">
+    <div className={classes['board-skeleton']}>
       {Array.from({ length: BOARD_SIZE * BOARD_SIZE }).map((_, idx) => (
-        <div className="cell skeleton-cell" key={idx} />
+        <div className={classes['skeleton-cell']} key={idx} />
       ))}
     </div>
   )

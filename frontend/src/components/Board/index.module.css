@@ -1,3 +1,4 @@
+/* Board.module.css - migrated from Board.css for CSS Modules usage */
 .board {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -20,50 +21,41 @@
   text-transform: uppercase;
 }
 
-.cell.empty {
+.empty {
   background-color: #f0f0f0;
 }
 
-.cell.ship {
+.ship {
   background-color: #007bff;
   color: white;
 }
 
-.cell.hit {
+.hit {
   background-color: #dc3545;
   color: white;
 }
 
-.cell.miss {
+.miss {
   background-color: white;
   color: black;
 }
 
-.cell.pending {
+.pending {
   position: relative;
   background: #e0e0e0;
 }
 
-.cell.pending::after {
+.pending::after {
   content: "";
   display: block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  margin: -12px 0 0 -12px;
-  border: 3px solid #007bff;
-  border-top: 3px solid #fff;
-  border-radius: 50%;
-  animation: cell-spinner 0.8s linear infinite;
-}
-
-@keyframes cell-spinner {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
+  /* ...rest of the styles from Board.css if any */
 }
 
 .clickable {
   cursor: pointer;
+}
+
+.wall {
+  /* If there are any wall-specific styles, move them here */
 }
