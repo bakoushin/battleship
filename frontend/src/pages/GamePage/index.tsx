@@ -11,7 +11,7 @@ import { Address, zeroAddress } from 'viem'
 import { CopyToClipboardButton } from '../../components/CopyToClipboardButton/CopyToClipboardButton'
 import { JoinGame } from '../../components/JoinGame'
 import { useParams } from 'react-router-dom'
-import { HIT, MISS, SHIP } from '../../constants/game'
+import { EMPTY, HIT, MISS, SHIP } from '../../constants/game'
 import { PlayAgain } from '../../components/ PlayAgain'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
@@ -144,8 +144,15 @@ const Game: FC = () => {
   const [pendingIndex, setPendingIndex] = useState<number | undefined>(undefined)
 
   useEffect(() => {
-    if (isTransactionReceiptSuccess) {
+    if (isTransactionReceiptSuccess || writeContractError || transactionReceiptError) {
       resetWriteContract()
+      if (!isTransactionReceiptSuccess && pendingIndex !== undefined) {
+        setOpponentMissesBoard(prev => {
+          const newBoard = [...prev]
+          newBoard[pendingIndex] = EMPTY
+          return newBoard
+        })
+      }
       setPendingIndex(undefined)
     }
   }, [isInteractingWithChain])
