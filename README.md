@@ -1,6 +1,4 @@
-# Battleship game
-
-## 🛡️ Battleship on Oasis Sapphire: Private On-Chain Gameplay
+# 🛡️ Battleship on Oasis Sapphire: Private On-Chain Gameplay
 
 This is a fully on-chain implementation of the classic Battleship game, built to demonstrate the power of **[Oasis Sapphire](https://oasisprotocol.org/sapphire)**—the first confidential EVM-compatible blockchain with support for **private smart contract state** and **encrypted transactions**.
 
