@@ -6,7 +6,7 @@ import { boardToBinaryNumber, generateBoard, generateGameId } from '../../utils/
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { SHIP } from '../../constants/game'
-import Board from '../Board/Board'
+import Board from '../Board'
 import classes from './index.module.css'
 
 export function CreateGame() {

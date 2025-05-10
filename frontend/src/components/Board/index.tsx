@@ -15,7 +15,7 @@ const Board: React.FC<BoardProps> = ({ board, onClick, pendingCellIndex, disable
       {board.map((cell, index) => (
         <div
           key={index}
-          className={`cell ${
+          className={`cell wall ${
             index === pendingCellIndex
               ? 'pending'
               : cell === SHIP

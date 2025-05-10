@@ -6,7 +6,7 @@ import { useAccount, useReadContract, useWaitForTransactionReceipt, useWriteCont
 import { WAGMI_CONTRACT_CONFIG, WagmiUseReadContractReturnType } from '../../constants/config'
 import { useWeb3Auth } from '../../hooks/useWeb3Auth'
 import { binaryNumberToBoard, generateEmptyBoard } from '../../utils/game'
-import Board from '../../components/Board/Board'
+import Board from '../../components/Board'
 import { Address, zeroAddress } from 'viem'
 import { CopyToClipboardButton } from '../../components/CopyToClipboardButton/CopyToClipboardButton'
 import { JoinGame } from '../../components/JoinGame'
@@ -14,6 +14,7 @@ import { useParams } from 'react-router-dom'
 import { EMPTY, HIT, MISS, SHIP } from '../../constants/game'
 import { PlayAgain } from '../../components/ PlayAgain'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import BoardSkeleton from '../../components/BoardSkeleton'
 
 const ONE_SECOND = 1000
 
@@ -227,6 +228,7 @@ const Game: FC = () => {
 
   return (
     <>
+      {!playerBoard && <BoardSkeleton />}
       {playerBoard && (
         <>
           <h1 className={classes.header}>You</h1>
@@ -234,15 +236,18 @@ const Game: FC = () => {
         </>
       )}
       {canJoin && <JoinGame gameId={gameId} />}
-      {gameReady && opponentBoard && (
+      {gameReady && (
         <>
           <h1 className={classes.header}>Opponent</h1>
-          <Board
-            board={opponentBoard}
-            onClick={handleAttack}
-            pendingCellIndex={pendingIndex}
-            disabled={!canPlay}
-          />
+          {!opponentBoard && <BoardSkeleton />}
+          {opponentBoard && (
+            <Board
+              board={opponentBoard}
+              onClick={handleAttack}
+              pendingCellIndex={pendingIndex}
+              disabled={!canPlay}
+            />
+          )}
         </>
       )}
       {!!pendingIndex && (

@@ -5,7 +5,7 @@ import { parseEther } from 'viem'
 import { boardToBinaryNumber, generateBoard } from '../../utils/game'
 import { SHIP } from '../../constants/game'
 import { useState } from 'react'
-import Board from '../Board/Board'
+import Board from '../Board'
 import classes from './index.module.css'
 
 export function JoinGame({ gameId }: { gameId: bigint }) {
