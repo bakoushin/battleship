@@ -1,11 +1,11 @@
 import ABI from '../../../backend/abis/Battleship.json'
 import { UseReadContractReturnType } from 'wagmi'
-const { VITE_MESSAGE_BOX_ADDR } = import.meta.env
+const { VITE_BATTLESHIP_ADDR } = import.meta.env
 
 export const GITHUB_REPOSITORY_URL = 'https://github.com/bakoushin/battleship'
 
 export const WAGMI_CONTRACT_CONFIG = {
-  address: VITE_MESSAGE_BOX_ADDR as `0x${string}`,
+  address: VITE_BATTLESHIP_ADDR as `0x${string}`,
   abi: ABI,
 }
 

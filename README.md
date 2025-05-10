@@ -97,13 +97,13 @@ npx hardhat deploy yourdomain.com --network sapphire
 
 ## Frontend
 
-Once the contract is deployed, the MessageBox address will be reported. Store it
+Once the contract is deployed, the Battleship address will be reported. Store it
 inside the `frontend` folder's `.env.development` (for Localnet) or
 `.env.production` (for Testnet or Mainnet - uncomment the appropriate network),
 for example:
 
 ```
-VITE_MESSAGE_BOX_ADDR=0x5FbDB2315678afecb367f032d93F642f64180aa3
+VITE_BATTLESHIP_ADDR=0x5FbDB2315678afecb367f032d93F642f64180aa3
 ```
 
 ### Run locally
