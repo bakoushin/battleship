@@ -98,22 +98,24 @@ export const wagmiConfig = createConfig({
 
 export const App: FC = () => {
   return (
-    <ErrorBoundary>
-      <WagmiProvider config={wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
-          <RainbowKitProvider
-            theme={rainbowKitTheme}
-            avatar={({ size, address }) => <AccountAvatar size={size} address={address} />}
-            modalSize="compact"
-          >
-            <Web3AuthContextProvider>
-              <AppStateContextProvider>
-                <RouterProvider router={router} />
-              </AppStateContextProvider>
-            </Web3AuthContextProvider>
-          </RainbowKitProvider>
-        </QueryClientProvider>
-      </WagmiProvider>
-    </ErrorBoundary>
+    <div className='bg'>
+      <ErrorBoundary>
+        <WagmiProvider config={wagmiConfig}>
+          <QueryClientProvider client={queryClient}>
+            <RainbowKitProvider
+              theme={rainbowKitTheme}
+              avatar={({ size, address }) => <AccountAvatar size={size} address={address} />}
+              modalSize="compact"
+            >
+              <Web3AuthContextProvider>
+                <AppStateContextProvider>
+                  <RouterProvider router={router} />
+                </AppStateContextProvider>
+              </Web3AuthContextProvider>
+            </RainbowKitProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
+      </ErrorBoundary>
+    </div>
   )
 }
