@@ -16,7 +16,7 @@ export const HomePage: FC = () => {
 
   return (
     <div>
-      <Card header={<h2>⚓︎ Battleships</h2>}>
+      <Card header={<h2>⚓︎ Battleship</h2>}>
         {address && !!authInfo && <CreateGame />}
         {!address && (
           <div>

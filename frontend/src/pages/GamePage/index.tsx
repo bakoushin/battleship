@@ -20,7 +20,7 @@ const ONE_SECOND = 1000
 export const GamePage: FC = () => {
   return (
     <div className={classes.homePage}>
-      <Card header={<h2>⚓︎ Battleships</h2>}>
+      <Card header={<h2>⚓︎ Battleship</h2>}>
         <Game />
       </Card>
     </div>
