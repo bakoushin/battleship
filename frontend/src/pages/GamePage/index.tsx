@@ -228,7 +228,7 @@ const Game: FC = () => {
 
   return (
     <>
-      {gameReady && (
+      {(waitingForOpponent || gameReady) && (
         <>
           <h1 className={classes.header}>You</h1>
           {!playerBoard && <BoardSkeleton />}
