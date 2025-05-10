@@ -228,8 +228,8 @@ const Game: FC = () => {
 
   return (
     <>
-      {!playerBoard && <BoardSkeleton />}
-      {playerBoard && (
+      {gameReady && !playerBoard && <BoardSkeleton />}
+      {gameReady && playerBoard && (
         <>
           <h1 className={classes.header}>You</h1>
           <Board board={playerBoard} />
