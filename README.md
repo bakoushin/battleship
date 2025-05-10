@@ -103,7 +103,7 @@ inside the `frontend` folder's `.env.development` (for Localnet) or
 for example:
 
 ```
-VITE_BATTLESHIP_ADDR=0x5FbDB2315678afecb367f032d93F642f64180aa3
+VITE_BATTLESHIP_ADDR=0x9e899551d85F650eF3f854DEA97A1FbFE9269657
 ```
 
 ### Run locally
