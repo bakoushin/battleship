@@ -64,7 +64,7 @@ const Game: FC = () => {
   const canPlay = myGame && gameReady && !gameOver && currentPlayer === address
   const shouldWait = myGame && gameReady && !gameOver && currentPlayer !== address
   const canJoin = gameExists && !myGame && !gameReady && !gameOver
-  const isWinner = gameOver && currentPlayer === address
+  const isWinner = gameOver && currentPlayer !== address
 
   const { data: ships, refetch: refetchShips } = useReadContract({
     ...WAGMI_CONTRACT_CONFIG,
@@ -238,12 +238,17 @@ const Game: FC = () => {
           />
         </>
       )}
-      {canPlay && (
+      {!!pendingIndex && (
+        <div className={classes.label}>
+          <h1>Processing transaction...</h1>
+        </div>
+      )}
+      {!pendingIndex && canPlay && (
         <div className={classes.label}>
           <h1>Your turn!</h1>
         </div>
       )}
-      {shouldWait && (
+      {!pendingIndex && shouldWait && (
         <div className={classes.label}>
           <h1>Wait for their move...</h1>
         </div>
@@ -251,7 +256,7 @@ const Game: FC = () => {
       {gameOver && isWinner && (
         <div>
           <div className={classes.label}>
-            <p>You won!</p>
+            <h1 className={classes.pulsate}>🎉 You won! 🎉</h1>
           </div>
           <div className={classes.actions}>
             <PlayAgain />
@@ -261,7 +266,7 @@ const Game: FC = () => {
       {gameOver && !isWinner && (
         <>
           <div className={classes.label}>
-            <p>Game over!</p>
+            <h1 className={classes.pulsate}>🏁 Game over! 🏁</h1>
           </div>
           <div className={classes.actions}>
             <PlayAgain />

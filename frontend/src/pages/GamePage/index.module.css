@@ -16,3 +16,23 @@
   padding-top: 1rem;
   gap: 12px
 }
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulsate {
+  animation: pulsate 1s infinite;
+  display: inline-block;
+  /* Optional: make it smoother */
+  transition: transform 0.2s;
+}
+
