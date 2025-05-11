@@ -11,7 +11,9 @@ Unlike traditional EVM networks, where all on-chain data is publicly visible, th
 - 🛠️ **End-to-end verifiability**: While players enjoy full privacy, game logic is still transparently enforced by a smart contract—ensuring fairness without sacrificing decentralization.
 
 
-https://github.com/user-attachments/assets/775c0967-8fc0-4f1f-b70c-3aba53c6e65f
+### 📺 Video demo
+[![Watch the video](https://img.youtube.com/vi/JH4UBWQOURs/0.jpg)](https://youtu.be/JH4UBWQOURs)
+
 
 
 ---
